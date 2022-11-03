@@ -15,8 +15,9 @@ public class SongApp
         printList(storedSongs);
         // printing the songs over said playcount
         printListOverPlayCount(storedSongs);
-
-
+        // adds new song
+        storedSongs.add(getNewSong());
+        
     }
     private static ArrayList initialiseSongs()
     {
@@ -58,11 +59,17 @@ public class SongApp
             song.print(); //if song play count is pver min play count, it prints the song
         }
     }
-    public static void userinput()
+    public static Song getNewSong()
     {
-        String name = InputReader.getString("Enter your name > ");
-        System.out.println("Hello " + name);
-
+        // created temp variables
+        String tempSongName, tempArtist;
+        int tempPlayCount;
+        //assigning values to the variables
+        tempSongName = InputReader.getString("Name of the new song: ");
+        tempArtist = InputReader.getString("Name of the new song's artist: ");
+        tempPlayCount = InputReader.getInt("New song's play count: ");
+        //returning new song based on user input
+        return new Song(tempSongName, tempArtist, tempPlayCount);
     }
     
 }
