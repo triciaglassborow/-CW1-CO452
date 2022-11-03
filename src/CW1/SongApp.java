@@ -1,3 +1,6 @@
+/**
+ * 
+ */
 package CW1;
 import java.util.ArrayList;
 
@@ -17,10 +20,14 @@ public class SongApp
         printListOverPlayCount(storedSongs);
         // adds new song
         storedSongs.add(getNewSong());
+        //removes song
+        storedSongs.remove(getSongToRemove(storedSongs));
+
         
     }
     private static ArrayList initialiseSongs()
     {
+        System.out.println("\ninitialising Songs");
         // created an array called storedSongs
         ArrayList<Song> storedSongs = new ArrayList<Song>();
         // creating an object
@@ -41,6 +48,7 @@ public class SongApp
 
     public static void printList(ArrayList<Song> songsList)
     {
+        System.out.println("\nlist of songs: ");
         //for each song in the array it will print out the info of the song
         for (Song song : songsList) 
         {
@@ -50,6 +58,7 @@ public class SongApp
     
     public static void printListOverPlayCount(ArrayList<Song> playCountList)
     {
+        System.out.println("\ncomparing play counts");
         //getting user to input what they want the min play count to be
         int minPlayCount = InputReader.getInt("what is the minimum play count needed for a song to be played:  ");
         //comparing each songs playCount with the min play count given
@@ -58,9 +67,11 @@ public class SongApp
             if (minPlayCount < song.getPlayCount())
             song.print(); //if song play count is pver min play count, it prints the song
         }
+
     }
     public static Song getNewSong()
     {
+        System.out.println("\nadding new song");
         // created temp variables
         String tempSongName, tempArtist;
         int tempPlayCount;
@@ -69,7 +80,30 @@ public class SongApp
         tempArtist = InputReader.getString("Name of the new song's artist: ");
         tempPlayCount = InputReader.getInt("New song's play count: ");
         //returning new song based on user input
+        System.out.println("\nnew song added");
         return new Song(tempSongName, tempArtist, tempPlayCount);
+    }
+
+    public static Song getSongToRemove(ArrayList<Song> songsList)
+    {
+        System.out.println("\nremoving song");
+        //getting user to input the song they want removed
+        String removeSong = InputReader.getString("name of the song you want to remove: ");
+        // making the input all lower case
+        removeSong.toLowerCase();
+        // going through the whole array
+        for (Song song : songsList )
+        {
+            // get the object songTitle, then make it all lower case, 
+            // compare it to the input, if true then it returns 1
+            if (song.getSongTitle().toLowerCase().compareTo(removeSong) == 1)
+            {
+                System.out.println("\nsong removed");
+                return song; //returns the matched song
+            }
+        }
+        System.out.println("\nno song found to remove");
+        return null; // if none of the songs match it returns nothing
     }
     
 }

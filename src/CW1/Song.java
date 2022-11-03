@@ -26,5 +26,11 @@ public class Song
     {
         return playCount;
     }
+
+    // get songtitle
+    public String getSongTitle()
+    {
+        return songTitle;
+    }
 }
 
