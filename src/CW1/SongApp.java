@@ -9,7 +9,10 @@ public class SongApp
 
     public static void main(String[] args)
     {
+        //creating an array list
         ArrayList<Song> storedSongs = initialiseSongs();
+        // calling the printList method
+        printList(storedSongs);
 
     }
     private static ArrayList initialiseSongs()
@@ -32,9 +35,13 @@ public class SongApp
         return storedSongs;
     }
 
-    public static void printList()
+    public static void printList(ArrayList<Song> songsList)
     {
-        
+        //for each song in the array it will print out the info of the song
+        for (Song song : songsList) 
+        {
+            song.print();
+        }
     }
 
     public static void userinput()
