@@ -13,6 +13,9 @@ public class SongApp
         ArrayList<Song> storedSongs = initialiseSongs();
         // calling the printList method
         printList(storedSongs);
+        // printing the songs over said playcount
+        printListOverPlayCount(storedSongs);
+
 
     }
     private static ArrayList initialiseSongs()
@@ -43,7 +46,18 @@ public class SongApp
             song.print();
         }
     }
-
+    
+    public static void printListOverPlayCount(ArrayList<Song> playCountList)
+    {
+        //getting user to input what they want the min play count to be
+        int minPlayCount = InputReader.getInt("what is the minimum play count needed for a song to be played:  ");
+        //comparing each songs playCount with the min play count given
+        for (Song song : playCountList)
+        {
+            if (minPlayCount < song.getPlayCount())
+            song.print(); //if song play count is pver min play count, it prints the song
+        }
+    }
     public static void userinput()
     {
         String name = InputReader.getString("Enter your name > ");

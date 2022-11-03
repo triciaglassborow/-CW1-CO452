@@ -20,5 +20,11 @@ public class Song
         System.out.println("\nSong title: " + songTitle + " Artist: " 
             + artistName + " Play count: " + playCount);
     }
+
+    // get PlayCount
+    public int getPlayCount()
+    {
+        return playCount;
+    }
 }
 
