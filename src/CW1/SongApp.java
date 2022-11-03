@@ -1,17 +1,25 @@
-/**
- * 
- */
 package CW1;
 import java.util.ArrayList;
 
 import helpers.*;
 
+/**
+ * Song App has the following features:
+ * Add a new song to the list of songs
+ * Remove a song from the list of songs
+ * Print a list of all the songs stored
+ * Print a list of songs over a given number of plays 
+ * Made by Patricia Glassborow
+ * Last Update: 03/11/2022
+ */
 
 public class SongApp
  {
 
     public static void main(String[] args)
     {
+        //clears the console
+        System.out.println(ConsoleColours.CONSOLE_CLEAR);
         //creating an array list
         ArrayList<Song> storedSongs = initialiseSongs();
         // calling the printList method
@@ -25,7 +33,7 @@ public class SongApp
 
         
     }
-    private static ArrayList initialiseSongs()
+    private static ArrayList<Song> initialiseSongs()
     {
         System.out.println("\ninitialising Songs");
         // created an array called storedSongs
