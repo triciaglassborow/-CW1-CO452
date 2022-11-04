@@ -18,7 +18,7 @@ public class SongApp
 
     public static void main(String[] args)
     {
-        //clears the console
+        //clears the terminal
         System.out.println(ConsoleColours.CONSOLE_CLEAR);
         //creating an array list
         ArrayList<Song> storedSongs = initialiseSongs();
@@ -39,17 +39,33 @@ public class SongApp
         // created an array called storedSongs
         ArrayList<Song> storedSongs = new ArrayList<Song>();
         // creating an object
-        Song manUp = new Song("Man Up", "Hailee Steinfeld", 1000);
-        Song work = new Song("Work", "The Saturdays", 250);
-        Song girls = new Song("girls", "girl in red", 5000);
-        Song numb = new Song("Numb To The Feeling", "Chase Atlantic", 6500);
-        Song cant = new Song("CANT HAVE IT", "JKER", 300);
+        Song manUp = new Song("Man Up", "Hailee Steinfeld", 4754000);
+        Song work = new Song("Work", "The Saturdays", 4188000);
+        Song girls = new Song("girls", "girl in red", 224776000);
+        Song numb = new Song("Numb To The Feeling", "Chase Atlantic", 38259000);
+        Song cant = new Song("CANT HAVE IT", "JKER", 7536000);
+        Song heartless = new Song("Heartless", "The Weeknd", 575902000);
+        Song summertime = new Song("Summertime Sadness", "Lana Del Rey", 665304000);
+        Song roof = new Song("OUT THE ROOF", "Chase Atlantic", 19627000);
+        Song softcore = new Song("Softcore", "The Neighbourhood", 389105000);
+        Song watch = new Song("watch", "Billie Eilish", 417783000);
+
+
+
+
+
         // adding songs to the array list
         storedSongs.add(manUp);
         storedSongs.add(work);
         storedSongs.add(girls);
         storedSongs.add(numb);
         storedSongs.add(cant);
+        storedSongs.add(heartless);
+        storedSongs.add(summertime);
+        storedSongs.add(roof);
+        storedSongs.add(softcore);
+        storedSongs.add(watch);
+
         // returns the array list
         return storedSongs;
     }
