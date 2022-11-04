@@ -24,6 +24,7 @@ public class SongApp
         ArrayList<Song> storedSongs = initialiseSongs();
         // calling the printList method
         printList(storedSongs);
+
         // creating variable
         char userInputAdd;
         // asking user if they want to add a song
@@ -38,6 +39,7 @@ public class SongApp
             //asking if they want to add another song
             userInputAdd = InputReader.getChar("do you want to add another song? y/n ");
         }
+
         // creating variable
         char userInputRemove;
         // asking user if they want to remove a song
@@ -53,7 +55,6 @@ public class SongApp
             userInputRemove = InputReader.getChar("do you want to remove another song? y/n ");
 
         }
-        
         
         // printing the songs over said playcount
         printListOverPlayCount(storedSongs);
@@ -137,6 +138,7 @@ public class SongApp
     }
 
     public static Song getSongToRemove(ArrayList<Song> songsList)
+    //lable the songs 1,2,3... and ask the user which song number tey awant to remove
     {
         System.out.println("\nremoving song");
         //getting user to input the song they want removed
@@ -148,8 +150,9 @@ public class SongApp
         {
             // get the object songTitle, then make it all lower case, 
             // compare it to the input, if true then it returns 1
-            if (song.getSongTitle().toLowerCase().compareTo(removeSong) == 1)
+            if (song.getSongTitle().toLowerCase().compareTo(removeSong))
             {
+                remove(song);
                 System.out.println("\nsong removed");
                 return song; //returns the matched song
             }
