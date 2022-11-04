@@ -15,9 +15,9 @@ public class Song
         this.playCount = playCount;
     }
 
-    public void print()
+    public void print(int listNumber)
     {
-        System.out.println("\nSong title: " + songTitle + " Artist: " 
+        System.out.println("\n" + (listNumber+1) + " Song title: " + songTitle + " Artist: " 
             + artistName + " Play count: " + playCount);
     }
 

@@ -48,7 +48,7 @@ public class SongApp
         while (userInputRemove == 'y')
         {
             //removes song
-            storedSongs.remove(getSongToRemove(storedSongs));
+            storedSongs.remove(getSongToRemove());
             // calling printList method
             printList(storedSongs);
             // asking suer if they want to remove another song
@@ -58,7 +58,6 @@ public class SongApp
         
         // printing the songs over said playcount
         printListOverPlayCount(storedSongs);
-        
 
         
     }
@@ -102,10 +101,12 @@ public class SongApp
     public static void printList(ArrayList<Song> songsList)
     {
         System.out.println("\nlist of songs: ");
+        int listNumber = 0;
         //for each song in the array it will print out the info of the song
         for (Song song : songsList) 
         {
-            song.print();
+            song.print(listNumber);
+            listNumber++;
         }
     }
     
@@ -114,11 +115,16 @@ public class SongApp
         System.out.println("\ncomparing play counts");
         //getting user to input what they want the min play count to be
         int minPlayCount = InputReader.getInt("what is the minimum play count needed for a song to be played:  ");
+        int listNumber = 0;
         //comparing each songs playCount with the min play count given
         for (Song song : playCountList)
         {
             if (minPlayCount < song.getPlayCount())
-            song.print(); //if song play count is pver min play count, it prints the song
+            {
+                 song.print(listNumber); //if song play count is pver min play count, it prints the song
+                 listNumber++;
+
+            }
         }
 
     }
@@ -137,28 +143,14 @@ public class SongApp
         return new Song(tempSongName, tempArtist, tempPlayCount);
     }
 
-    public static Song getSongToRemove(ArrayList<Song> songsList)
+    public static int getSongToRemove()
     //lable the songs 1,2,3... and ask the user which song number tey awant to remove
     {
         System.out.println("\nremoving song");
         //getting user to input the song they want removed
-        String removeSong = InputReader.getString("name of the song you want to remove: ");
-        // making the input all lower case
-        removeSong.toLowerCase();
-        // going through the whole array
-        for (Song song : songsList )
-        {
-            // get the object songTitle, then make it all lower case, 
-            // compare it to the input, if true then it returns 1
-            if (song.getSongTitle().toLowerCase().compareTo(removeSong))
-            {
-                remove(song);
-                System.out.println("\nsong removed");
-                return song; //returns the matched song
-            }
-        }
-        System.out.println("\nno song found to remove");
-        return null; // if none of the songs match it returns nothing
+        int removeSong = InputReader.getInt("\nnumber of the song you want to remove: ");
+        return removeSong-1;
+        //System.out.println("\nno song found to remove");
     }
     
 }
