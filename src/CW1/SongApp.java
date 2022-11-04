@@ -19,17 +19,29 @@ public class SongApp
     public static void main(String[] args)
     {
         //clears the terminal
-        System.out.println(ConsoleColours.CONSOLE_CLEAR);
+        
         //creating an array list
         ArrayList<Song> storedSongs = initialiseSongs();
         // calling the printList method
         printList(storedSongs);
-        // printing the songs over said playcount
-        printListOverPlayCount(storedSongs);
-        // adds new song
-        storedSongs.add(getNewSong());
+        // creating variable
+        char userInput;
+        // asking user if they want to add a song
+        userInput = InputReader.getChar("do you want to add a song? y/n ");
+        // when they say yes it will run getNewSong
+        while (userInput == 'y')
+        {
+            // adds new song
+            storedSongs.add(getNewSong());
+            printList(storedSongs);
+            userInput = InputReader.getChar("do you want to add a song? y/n ");
+        }
+        
         //removes song
         storedSongs.remove(getSongToRemove(storedSongs));
+        // printing the songs over said playcount
+        printListOverPlayCount(storedSongs);
+        
 
         
     }
