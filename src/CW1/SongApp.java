@@ -25,20 +25,36 @@ public class SongApp
         // calling the printList method
         printList(storedSongs);
         // creating variable
-        char userInput;
+        char userInputAdd;
         // asking user if they want to add a song
-        userInput = InputReader.getChar("do you want to add a song? y/n ");
+        userInputAdd = InputReader.getChar("do you want to add a song? y/n ");
         // when they say yes it will run getNewSong
-        while (userInput == 'y')
+        while (userInputAdd == 'y')
         {
             // adds new song
             storedSongs.add(getNewSong());
+            // calling printList method
             printList(storedSongs);
-            userInput = InputReader.getChar("do you want to add a song? y/n ");
+            //asking if they want to add another song
+            userInputAdd = InputReader.getChar("do you want to add another song? y/n ");
+        }
+        // creating variable
+        char userInputRemove;
+        // asking user if they want to remove a song
+        userInputRemove = InputReader.getChar("do you want to remove a song? y/n ");
+        // when they say yes then it will run getSongToRemove
+        while (userInputRemove == 'y')
+        {
+            //removes song
+            storedSongs.remove(getSongToRemove(storedSongs));
+            // calling printList method
+            printList(storedSongs);
+            // asking suer if they want to remove another song
+            userInputRemove = InputReader.getChar("do you want to remove another song? y/n ");
+
         }
         
-        //removes song
-        storedSongs.remove(getSongToRemove(storedSongs));
+        
         // printing the songs over said playcount
         printListOverPlayCount(storedSongs);
         
