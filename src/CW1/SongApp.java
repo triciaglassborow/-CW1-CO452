@@ -10,7 +10,7 @@ import helpers.*;
  * Print a list of all the songs stored
  * Print a list of songs over a given number of plays 
  * Made by Patricia Glassborow
- * Last Update: 03/11/2022
+ * Last Update: 06/11/2022
  */
 
 public class SongApp
@@ -18,8 +18,6 @@ public class SongApp
 
     public static void main(String[] args)
     {
-        //clears the terminal
-        
         //creating an array list
         ArrayList<Song> storedSongs = initialiseSongs();
         // calling the printList method
